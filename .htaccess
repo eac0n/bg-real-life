@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine on 
+	RewriteBase /bg-real-life/
+	
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-l
+
+	RewriteRule ^/?([^/]+)/?([^/]+)?/?$ ?controller=$1&action=$2 [QSA,PT]
+</IfModule>
