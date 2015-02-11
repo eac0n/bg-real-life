@@ -20,6 +20,7 @@
 					<input name="password" type="password" placeholder="Passwort">
 					<input name="login" type="submit" value="Login">
 				</form>
+                                <a href="./registration">Registrieren</a>
 			</section>
 		</div>
 	</body>

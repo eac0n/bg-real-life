@@ -12,12 +12,16 @@ abstract class Controller {
 	
 	private $user_vars;
 	
+	protected $dbHandler;
+	
 	public function __construct($name, $action) {
 		
 		$this->name = $name;
 		$this->action = empty($action) ? 'index' : $action;
 		
 		$this->user_vars = array();
+		
+		$this->dbHandler = new DBHandler();
 		
 		$this->before_action();
 		$action_method = 'action_' . $action;

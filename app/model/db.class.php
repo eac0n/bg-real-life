@@ -15,13 +15,13 @@ class Db {
 	
 	/**
 	 *
-	 * @param type $dbDns
+	 * @param type $dbDsn
 	 * @param type $dbUser
 	 * @param type $db_Pass 
 	 * @throws PDOException 
 	 */
-	public static function connect($dbDns, $dbUser, $db_Pass) {
-		self::$connection = new PDO($dbDns, $dbUser, $db_Pass);
+	public static function connect($dbDsn, $dbUser, $db_Pass) {
+		self::$connection = new PDO($dbDsn, $dbUser, $db_Pass);
 	}
 	
 	/**

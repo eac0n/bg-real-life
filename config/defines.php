@@ -13,9 +13,9 @@ define('CONTROLLER_PATH', APP_PATH . DS . 'controller');
 
 
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'team_balance');
+define('DB_NAME', 'browsergame');
 define('DB_USER', 'root');
 define('DB_PASS', '');
-define('DB_DNS', 'mysql:dbname=' . DB_NAME . ';host=' . DB_HOST . ';charset=utf8');
+define('DB_DSN', 'mysql:dbname=' . DB_NAME . ';host=' . DB_HOST . ';charset=utf8');
 
 ?>

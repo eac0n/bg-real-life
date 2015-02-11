@@ -34,12 +34,12 @@ spl_autoload_register(function ($class) {
 	// error
 });
 
-try {
-	Db::connect(DB_DNS, DB_USER, DB_PASS);
-}
-catch(PDOException $e) {
-	die($e->getMessage());
-}
+//try {
+//	Db::connect(DB_DSN, DB_USER, DB_PASS);
+//}
+//catch(PDOException $e) {
+//	die($e->getMessage());
+//}
 
 Session::start();
 
