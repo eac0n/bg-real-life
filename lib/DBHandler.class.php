@@ -28,12 +28,8 @@ class DBHandler {
     public function query($sql, $params = array()) {
 	$stmt = $this->connection->prepare($sql);
 	foreach ($params as $param => $value) {
-	    $stmt->bindParam($param, $value);
+	    $stmt->bindValue($param, $value);
 	}
-	$stmt->execute();
-	echo '<pre>';
-	var_dump($stmt->errorInfo());
-	echo '</pre>';
-	return $stmt;
+	return $stmt->execute();
     }
 }

@@ -16,13 +16,13 @@
 			<section class="login">
 				<h1>Registrieren</h1>
 				<form action="./registration/register" method="post">
-					<input name="email" type="email" placeholder="Email">
+					<input name="email" type="email" value="<?=$email?>" placeholder="Email">
 					<input name="password" type="password" placeholder="Passwort">
-					<input name="username" type="text" placeholder="Benutzername">
-					<label><input name="checkrules" type="checkbox"> Ich akzeptiere die <a href="#">Allgemeine Geschäftbedingungen (AGB)</a></label>
+					<input name="username" type="text" value="<?=$username?>" placeholder="Benutzername">
+					<label><input name="checkrules" type="checkbox" checked="<?=$checkrules?>"> Ich akzeptiere die <a href="#">Allgemeine Geschäftbedingungen (AGB)</a></label>
 					<input name="register" type="submit" value="Registrieren">
 				</form>
-                                <a href="./login">Zurück zum Login</a>
+                                <a href="<?= Controller::get_url('login') ?>">Zurück zum Login</a>
 			</section>
 		</div>
 	</body>

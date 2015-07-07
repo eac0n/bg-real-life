@@ -14,7 +14,23 @@
 class RegistrationController extends AppController {
     
     public function action_index() {
+	$username = filter_input(INPUT_GET, 'username');
+	$email = filter_input(INPUT_GET, 'email');
+	$checkrules = filter_input(INPUT_GET, 'checkrules');
 	
+	if($username === NULL) {
+	    $username = '';
+	}
+	if($email === NULL) {
+	    $email = '';
+	}
+	if($checkrules === NULL) {
+	    $checkrules = false;
+	}
+	
+	$this->set_user_var('username', $username);
+	$this->set_user_var('email', $email);
+	$this->set_user_var('checkrules', $checkrules);
     }
 
     public function after_action() {
@@ -38,16 +54,17 @@ class RegistrationController extends AppController {
 	}
 	
 	$sql = 'INSERT INTO users '
-		. 'SET nameUser = :username, mailadressUser = :email, passwordUser = :password, idRole = 0, idNeighborhood = 0, registerDate = NOW() ';
+		. 'SET nameUser = :username, mailadressUser = :email, passwordUser = :password, idRole = 2, idNeighborhood = 1, registerDate = NOW() ';
 	$params = array(
 	    ':username' => $username,
 	    ':email' => $email,
 	    ':password' => password_hash($password, PASSWORD_BCRYPT)
 	);
 	
-	$stmt = $this->dbHandler->query($sql, $params);
-	
-	var_dump($stmt);
+	$this->set_user_var('success', $this->dbHandler->query($sql, $params));
+	$this->set_user_var('username', $username);
+	$this->set_user_var('email', $email);
+	$this->set_user_var('checkrules', $checkrules);
     }
 
 //put your code here

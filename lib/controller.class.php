@@ -78,7 +78,30 @@ abstract class Controller {
 		}
 	}
 	
-	
+	public static function get_url($controller = 'home', $action = '', array $query = array()) {
+	    
+	    $query_str = '';
+	    
+	    foreach ($query as $key => $value) {
+		if($query_str !== '') {
+		    $query_str .= '&amp;';
+		}
+		$query_str .= rawurldecode($key) . '=' . rawurldecode($value);
+	    }
+	    
+	    $url = 'http://localhost/' . $controller . '/' . $action;
+	    
+	    if($query_str !== '') {
+		$url .= '?' . $query_str;
+	    }
+	    
+	    return $url;
+	}
+
+
+	protected function set_user_var($var, $value) {
+	    $this->user_vars[$var] = $value;
+	}
 
 	private static function load_controller($name) {
 		$controller_path = CONTROLLER_PATH . DS . $name . '.class.php';
