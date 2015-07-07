@@ -3,7 +3,7 @@
 /**
  * Description of User
  *
- * @author Holger
+ * @author Holger and Nicole Ross
  */
 class User {
 	
